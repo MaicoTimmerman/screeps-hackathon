@@ -1,8 +1,60 @@
 var _ = require('lodash')
+
 module.exports = {
     init_spawn_queue: function() {
         if (Memory.spawn_queue === undefined)
-            Memory.spawn_queue = ['harvester', 'guard', 'harvester', 'guard'];
+            Memory.spawn_queue = [
+                'harvester',
+                'guard',
+                'harvester',
+                'guard',
+                'healer',
+                'guard',
+                'harvester',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'healer',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'healer',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'healer',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'healer',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'healer',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'guard',
+                'healer',
+                'guard',
+                'guard',
+                'guard',
+            ];
+    },
+    check_spawn_queue: function() {
     },
     add_spawn_queue: function(creep_type, priority) {
         this.init_spawn_queue();
@@ -12,7 +64,16 @@ module.exports = {
         else
             Memory.spawn_queue.unshift(creep_type);
     },
-
+    gen_creep_name: function(creep_type) {
+        var name_count = 0;
+        var name = null;
+        while(true) {
+            name = creep_type + name_count;
+            if(Game.creeps[name] == undefined) break;
+            name_count++;
+        }
+        return name;
+    },
     spawn_next_creep: function() {
         this.init_spawn_queue();
 
