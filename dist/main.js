@@ -1,5 +1,7 @@
 var spawn_controller = require('spawn_controller');
-var harvester = require('harvester');
+var harvester = require('creep_harvester');
+var guard = require('creep_guard');
+var healer = require('creep_healer');
 
 function managed_current_creeps() {
     for (var name in Game.creeps) {
@@ -7,6 +9,8 @@ function managed_current_creeps() {
 
         switch (creep.memory.role) {
             case 'harvester': harvester.run(creep); break;
+            case 'guard': guard.run(creep); break;
+            case 'healer': healer.run(creep); break;
             default:
                 console.log('Unknown creep type; ' + creep + ': '+creep.memory.role);
                 continue;
