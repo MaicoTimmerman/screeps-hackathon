@@ -3,7 +3,7 @@ var squadUpdater = require('squadUpdater')
 // v2.0
 var controllerCOMBAT = require('controllerCOMBAT')
 var controllerRESOURCE = require('controllerRESOURCE')
-var controllerSPAWN = require('controllerSPAWN')
+// var controllerSPAWN = require('controllerSPAWN')
 
 // Init
 var thisRoom = Game.spawns.Spawn1.room
